@@ -1,6 +1,6 @@
-import { Paper } from "@mui/material";
-import { Box, Container, Stack } from "@mui/system"
+import { Box, Container } from "@mui/system"
 import { useEffect, useState } from "react";
+import useFetchCountries from "../hooks/useFetchCountries";
 import CountryDetailsSmall from "./CountryDetailsSmall";
 import Nav from "./Navbar/Nav"
 
@@ -8,20 +8,16 @@ import Nav from "./Navbar/Nav"
 
 
 const Content = () => {
+    const fetchCountries = useFetchCountries();
+
 
     const [ countries, setCountries ] = useState([]);
 
-
-    const fetchCountriesData = async () => {
-        let data = await fetch('http://localhost:3000/countries');
-        let mydata = await data.json();
-        
-        setCountries([ ...mydata.slice(0, 12) ]);
-    };
+    
 
 
     useEffect(() => {
-        fetchCountriesData();
+        setCountries([ ...fetchCountries.slice(0, 8)]);
     }, []);
 
     return (

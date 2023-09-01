@@ -22,7 +22,6 @@ const CountryDetailsSmall = ({ name, population, region, capital, flagUrl }) => 
 
     useEffect(() => {
         fetchFlag();
-        console.log(flag)
     }, [])
 
     return ( 
