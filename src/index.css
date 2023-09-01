@@ -7,3 +7,13 @@
   box-sizing: inherit;
   margin: 0;
 }
+
+body {
+  max-width: 1440px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
