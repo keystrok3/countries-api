@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, FormControl, IconButton, InputBase, InputLabel, MenuItem, Select } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import { useTheme } from "@emotion/react";
@@ -5,10 +6,10 @@ import { tokens } from "../../theme";
 import { useState } from "react";
 
 
-const regions = [ 'Africa', 'America', 'Asia', 'Europe', 'Oceania' ];
+const regions = [ 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania' ];
 
 
-const Nav = () => {
+const Nav = ({ onSelectRegion }) => {
 
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -18,6 +19,7 @@ const Nav = () => {
 
     const handleChange = (e) => {
         setRegionValue(e.target.value);
+        onSelectRegion(e.target.value);
     }
 
     return (

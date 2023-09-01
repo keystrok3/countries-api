@@ -12,18 +12,28 @@ const Content = () => {
 
 
     const [ countries, setCountries ] = useState([]);
+    const [ selectedRegion, setSelectedRegion ] = useState("Africa")
 
     
-
+    const handleSelectRegion = (value) => {
+        console.log('value: ', value)
+        setSelectedRegion(value)
+    };
+    
+    const filterCountries = () => {
+        console.log('region: ', selectedRegion)
+        setCountries(prev => (prev, [ ...fetchCountries.filter(country => country.region === selectedRegion)]));
+    } 
 
     useEffect(() => {
-        setCountries([ ...fetchCountries.slice(0, 8)]);
-    }, []);
+        filterCountries();
+        // console.log(countries)
+    }, [ selectedRegion ]);
 
     return (
         <Container>
             <Box marginTop='3em'>
-                <Nav />
+                <Nav onSelectRegion={handleSelectRegion} />
 
                 <Box 
                     display={'flex'} 

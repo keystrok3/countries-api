@@ -12,21 +12,21 @@ const CountryDetailsSmall = ({ name, population, region, capital, flagUrl }) => 
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    const fetchFlag = async () => {
+    const fetchFlag = () => {
 
         fetch(flagUrl)
-        .then(response => response.url)
-        .then(data => setFlag(data))
+            .then(response => response.url)
+            .then(data => setFlag(data));
     };
 
 
     useEffect(() => {
         fetchFlag();
-    }, [])
+    }, [ flag ])
 
     return ( 
         <Paper 
-            elevation={2} 
+            elevation={3} 
             
             sx={{ 
                 display: 'flex', 
