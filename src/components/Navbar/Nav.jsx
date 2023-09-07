@@ -28,7 +28,7 @@ const Nav = ({ onSelectRegion }) => {
                 <IconButton type="button">
                     <SearchIcon />
                 </IconButton>
-                <InputBase placeholder="Search"/>
+                <InputBase placeholder="Search for country"/>
             </Box>
 
             <Box width="30%">

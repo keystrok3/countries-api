@@ -5,6 +5,7 @@ import './App.css'
 import { CssBaseline } from '@mui/material';
 import Topbar from './components/Topbar';
 import Content from './components/Content';
+import { Outlet } from 'react-router-dom';
 
 
 const App = () => {
@@ -17,10 +18,7 @@ const App = () => {
       <ThemeProvider theme={ theme }>
       <CssBaseline />
 
-      <Topbar />
-      <Container  maxWidth='xl' sx={{ height: '100vh' }}>
-        <Content />
-      </Container>
+      <Outlet />
     </ThemeProvider>
     </ColorModeContext.Provider>
     

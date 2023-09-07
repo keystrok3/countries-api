@@ -7,7 +7,7 @@ import { tokens } from "../theme";
 
 
 const CountryDetailsSmall = ({ name, population, region, capital, flagUrl }) => {
-    const [ flag, setFlag ] = useState({});
+    const [ flag, setFlag ] = useState(flagUrl);
 
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -16,13 +16,13 @@ const CountryDetailsSmall = ({ name, population, region, capital, flagUrl }) => 
 
         fetch(flagUrl)
             .then(response => response.url)
-            .then(data => setFlag(data));
+            .then(data => setFlag(prev => (prev, data)));
     };
 
 
     useEffect(() => {
         fetchFlag();
-    }, [ flag ])
+    }, [ flagUrl ])
 
     return ( 
         <Paper 

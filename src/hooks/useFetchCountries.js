@@ -7,10 +7,14 @@ const useFetchCountries = () => {
 
 
     const fetchCountriesData = async () => {
-        let data = await fetch('http://localhost:3000/countries');
-        let mydata = await data.json();
-        
-        setCountries(mydata);
+        try {
+            let data = await fetch('http://localhost:3000/countries');
+            let mydata = await data.json();
+            
+            setCountries(mydata);
+        } catch (error) {
+            console.error('Error: ', error)
+        }
     };
 
     
